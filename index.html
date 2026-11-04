@@ -24,7 +24,7 @@
 <header class="top">
   <div class="shell">
     <div class="desktop-identity">
-      <a href="#top" class="brand mono"><span class="brand-mark" aria-hidden="true">✦</span> NIKHILA.EXE</a>
+      <a href="#top" class="brand mono" data-star-shower><span class="brand-mark" aria-hidden="true">✦</span> NIKHILA.EXE</a>
       <span class="hit-counter" title="Homepage loads counted since the counter was added">
         <span id="counter-status">HITS · PREVIEW</span>
         <img id="counter-badge" width="110" height="20" alt="Public homepage hit counter" referrerpolicy="no-referrer" hidden>
@@ -34,6 +34,7 @@
       <button class="button alt header-link desktop-toggle" id="music-toggle" type="button" aria-label="Background music" aria-pressed="false" hidden>♫ Music off</button>
       <button class="button alt header-link desktop-toggle" id="bunny-toggle" type="button" aria-label="Bunny companion" aria-pressed="true" hidden>Bunny on</button>
       <a class="button alt header-link" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
+      <button class="button header-link star-button" id="star-button" type="button" data-star-shower hidden>✦ Star shower</button>
     </div>
   </div>
 </header>
@@ -60,12 +61,18 @@
         <div class="art">
           <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Pixel art of a retro computer showing a speech waveform under a pastel sky">
             <defs>
+              <linearGradient id="sky-aurora" x1="0" y1="1" x2="1" y2="0">
+                <stop stop-color="#98d8de"/>
+                <stop offset=".52" stop-color="#c4c9ef"/>
+                <stop offset="1" stop-color="#e3b8db"/>
+              </linearGradient>
               <pattern id="sky-grid" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0v16" fill="none" stroke="#6b8f83" stroke-opacity=".2"/></pattern>
               <pattern id="water" width="64" height="22" patternUnits="userSpaceOnUse"><path d="M2 7h24m15 10h20" fill="none" stroke="#f7fff9" stroke-width="3" opacity=".55"/></pattern>
               <path id="cloud" d="M0 33h8V23h10v-8h14V6h24v7h11v8h17v7h9v12H0Z"/>
               <path id="spark" d="M9 0h4v8h9v4h-9v8H9v-8H0V8h9Z"/>
             </defs>
             <path fill="#cce5db" d="M0 0h400v330H0z"/>
+            <path class="hero-aurora" fill="url(#sky-aurora)" d="M0 0h400v330H0z"/>
             <path fill="url(#sky-grid)" d="M0 0h400v330H0z"/>
             <circle cx="302" cy="90" r="57" fill="#f5c4d1" stroke="#86647e" stroke-width="2"/>
             <path d="M258 55h88m-100 16h113m-115 17h115m-113 18h110m-104 16h96m-84 15h72" fill="none" stroke="#fff0e9" stroke-width="3" opacity=".65"/>
@@ -85,7 +92,7 @@
             <path class="hero-led" d="M229 220h13" stroke="#93627f" stroke-width="3" stroke-dasharray="4 3"/>
             </g>
           </svg>
-          <span class="art-label" aria-hidden="true">FIG. 01 / SIGNAL RECEIVED</span>
+          <button class="art-label signal-button" id="signal-button" type="button" aria-label="Scan for a hidden signal" hidden><span id="signal-message" aria-live="polite">✦ SCAN FOR A SIGNAL</span></button>
         </div>
       </div>
       <div class="status"><span class="status-dot" aria-hidden="true"></span> College Park, MD · University of Maryland <span class="status-online mono" aria-hidden="true">● ONLINE</span></div>
@@ -204,16 +211,25 @@
   </div>
 </footer>
 <audio id="desktop-audio" src="desktop-loop.mp3" preload="none" loop></audio>
-<div class="pixel-bunny" id="pixel-bunny" aria-hidden="true" hidden>
-  <svg viewBox="0 0 32 32" width="42" height="42" shape-rendering="crispEdges">
-    <path d="M10 30v-2H6v-2H4v-4H2v-5h2v-2h5v-2h5v-2h2V5h2V2h4v2h2v6h2V6h2v2h2v7h2v8h-2v3h-4v4h-6v-2h-4v2z" fill="#493044"/>
-    <path d="M8 25H6v-4H4v-4h4v3h2v-4h5v-2h3V6h2V4h2v8h3V8h3v8h2v6h-2v2h-4v4h-3v-3h-7v3h-3v-3z" fill="#a56b49"/>
-    <path d="M18 7h2v6h-2zm8 3h1v5h-1z" fill="#edb0b3"/>
-    <path d="M16 19h3v-4h6v2h3v5h-4v2h-8z" fill="#db9c72"/>
-    <path d="M24 17h2v3h-2z" fill="#35253b"/>
-    <path d="M27 21h3v1h-3z" fill="#e8a7a6"/>
-    <path d="M11 27h3v1h-3zm10 0h3v1h-3z" fill="#f1c6a2"/>
+<div class="bunny-companion" id="desktop-bunny" aria-hidden="true" hidden>
+  <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+    <ellipse cx="32" cy="59" rx="24" ry="3" fill="#382a40" opacity=".17"/>
+    <g stroke="#4a3039" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 40c-6-7-14-2-12 5 1 4 6 7 12 6" fill="#efd1b7"/>
+      <path d="M40 24C38 14 33 3 38 2c6-2 10 11 10 20" fill="#a96e51"/>
+      <path d="M47 22C47 12 50 3 54 5c5 2 2 13-1 21" fill="#bc805e"/>
+      <path d="M42 24c-5 1-10 6-10 12-9-5-22-1-23 9-2 8 4 12 16 12h26c6 0 9-6 4-8 7-3 9-10 6-16-3-8-10-11-19-9Z" fill="#bc805e"/>
+      <path d="M47 43c2-6 7-8 13-7 2 6 0 11-5 13 0 4-5 6-9 5" fill="#ebc0a0" stroke="none"/>
+      <path d="M25 46c-6-2-11 2-11 7 0 3 6 4 13 4h6c3-4-2-7-5-7" fill="#d8986c"/>
+      <path d="M44 51c3-3 8-2 11 0" />
+    </g>
+    <path d="M42 20c-1-3-4-12-3-13 2-1 4 7 5 12M50 20c1-5 3-12 4-11 2 1 0 8-2 12" stroke="#e9a7ad" stroke-width="2.3" stroke-linecap="round"/>
+    <ellipse cx="50" cy="34" rx="2.6" ry="3.1" fill="#392637"/>
+    <circle cx="50.8" cy="33" r=".8" fill="#fffaf0"/>
+    <ellipse cx="49" cy="42" rx="4" ry="2.2" fill="#df979d"/>
+    <path d="M60 38l-3 1 2 2" fill="#7e4b58"/>
   </svg>
 </div>
+<div class="star-shower" id="star-shower" aria-hidden="true"></div>
 </body>
 </html>

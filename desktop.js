@@ -49,7 +49,7 @@ musicButton.addEventListener("click", async () => {
   }
 });
 
-const bunny = document.querySelector("#pixel-bunny");
+const bunny = document.querySelector("#desktop-bunny");
 const bunnyButton = document.querySelector("#bunny-toggle");
 const mouseAvailable = window.matchMedia("(hover: hover) and (pointer: fine)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -98,9 +98,10 @@ window.addEventListener("pointermove", (event) => {
   if (event.pointerType !== "mouse" || !enabled || bunnyButton.hidden) {
     return;
   }
-  const side = event.clientX < 70 ? 25 : -56;
-  targetX = Math.max(4, Math.min(window.innerWidth - 46, event.clientX + side));
-  targetY = Math.max(5, Math.min(window.innerHeight - 48, event.clientY + 17));
+  const maxX = window.innerWidth - bunny.firstElementChild.width.baseVal.value - 4;
+  targetX = Math.max(4, Math.min(maxX, event.clientX + 18));
+  const offsetY = event.clientX + 18 > maxX ? 25 : 12;
+  targetY = Math.max(5, Math.min(window.innerHeight - 68, event.clientY + offsetY));
   if (bunny.hidden) {
     x = targetX;
     y = targetY;
@@ -121,3 +122,43 @@ document.documentElement.addEventListener("pointerleave", hideBunny);
 window.addEventListener("blur", hideBunny);
 window.addEventListener("resize", hideBunny);
 syncBunnyButton();
+
+
+const starButton = document.querySelector("#star-button");
+const starShower = document.querySelector("#star-shower");
+let starTimer;
+
+function showStars() {
+  window.clearTimeout(starTimer);
+  const stars = document.createDocumentFragment();
+  const colors = ["#f38fbd", "#c896e7", "#e1b5f0", "#f6b7d2"];
+  for (let i = 0; i < 34; i += 1) {
+    const star = document.createElement("span");
+    star.textContent = i % 3 === 0 ? "★" : "✦";
+    star.style.setProperty("--left", `${(i + Math.random()) / 34 * 98}%`);
+    star.style.setProperty("--rest-top", `${15 + Math.random() * 65}px`);
+    star.style.setProperty("--color", colors[i % colors.length]);
+    star.style.setProperty("--size", `${14 + Math.random() * 15}px`);
+    star.style.setProperty("--duration", `${1.45 + Math.random() * 1.15}s`);
+    star.style.setProperty("--delay", `${i < 8 ? 0 : Math.random() * 0.65}s`);
+    star.style.setProperty("--drift", `${Math.random() * 130 - 65}px`);
+    star.style.setProperty("--spin", `${Math.random() * 440 - 220}deg`);
+    stars.append(star);
+  }
+  starShower.replaceChildren(stars);
+  starTimer = window.setTimeout(() => starShower.replaceChildren(), reducedMotion.matches ? 1600 : 3500);
+}
+starButton.hidden = false;
+for (const trigger of document.querySelectorAll("[data-star-shower]")) {
+  trigger.addEventListener("click", showStars);
+}
+
+const signalButton = document.querySelector("#signal-button");
+const signalMessage = document.querySelector("#signal-message");
+const signals = ["HELLO, INTERNET!", "BUNNY STATUS: SEEKING CARROTS", "SIGNAL RECEIVED ♡"];
+let nextSignal = 0;
+signalButton.hidden = false;
+signalButton.addEventListener("click", () => {
+  signalMessage.textContent = signals[nextSignal];
+  nextSignal = (nextSignal + 1) % signals.length;
+});

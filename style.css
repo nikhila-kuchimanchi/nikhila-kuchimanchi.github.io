@@ -187,15 +187,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .hero-computer { animation: computer-bob 3.8s ease-in-out infinite; }
 .hero-signal { animation: signal-pulse 2.5s ease-in-out infinite; }
 .hero-led { animation: led-glow 2s ease-in-out infinite; }
-.pixel-bunny {
+.bunny-companion {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 4;
   pointer-events: none;
 }
-.pixel-bunny svg { display: block; transform: scaleX(var(--bunny-facing, 1)); }
-.pixel-bunny.is-hopping svg { animation: bunny-hop .28s ease-in-out infinite alternate; }
+.bunny-companion svg { display: block; transform: scaleX(var(--bunny-facing, 1)); }
+.bunny-companion.is-hopping svg { animation: bunny-hop .28s ease-in-out infinite alternate; }
 @keyframes computer-bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -228,6 +228,40 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
   a, button, summary, .shortcut svg, .brand-mark { transition: none; }
   .button:hover, .button:active, .shortcut:hover, .shortcut:active,
   .shortcut:hover svg, .shortcut:focus-visible svg, .brand:hover .brand-mark { transform: none; }
-  .hero-computer, .hero-signal, .hero-led, .pixel-bunny.is-hopping svg { animation: none; }
-  .pixel-bunny { display: none; }
+  .hero-computer, .hero-signal, .hero-led, .bunny-companion.is-hopping svg { animation: none; }
+  .bunny-companion { display: none; }
+}
+
+/* Animated sky and desktop surprises */
+.hero-aurora { opacity: .35; animation: sky-colors 10s ease-in-out infinite alternate; }
+@keyframes sky-colors {
+  from { opacity: .12; }
+  to { opacity: .86; }
+}
+.star-button { background: linear-gradient(115deg, var(--pink), var(--lilac)); color: var(--ink); }
+.star-button:hover { background: var(--pink); }
+.signal-button { color: var(--ink); border-radius: 0; }
+.signal-button:hover { background: var(--yellow); }
+.star-shower { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 6; }
+.star-shower span {
+  position: absolute;
+  top: -8px;
+  left: var(--left);
+  color: var(--color);
+  font: var(--size)/1 Georgia, serif;
+  text-shadow: 1px 1px #57375e, -1px -1px #fff7f9;
+  animation: star-fall var(--duration) var(--delay) linear both;
+}
+@keyframes star-fall {
+  from { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+  6% { opacity: 1; }
+  80% { opacity: .95; }
+  to { transform: translate3d(var(--drift), calc(100vh + 60px), 0) rotate(var(--spin)); opacity: 0; }
+}
+@media (max-width: 720px) {
+  .signal-button { display: inline-block; bottom: auto; top: 9px; left: 9px; right: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora { animation: none; }
+  .star-shower span { top: var(--rest-top); animation: none; opacity: .9; }
 }
