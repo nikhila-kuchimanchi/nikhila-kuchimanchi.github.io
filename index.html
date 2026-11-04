@@ -1,5 +1,4 @@
 <!doctype html>
-<!-- Portfolio update -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -11,6 +10,7 @@
 <meta name="theme-color" content="#e4d5ec">
 <title>Nikhila Kuchimanchi | Applied AI & ML</title>
 <link rel="stylesheet" href="style.css">
+<script src="desktop.js" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to content</a>
@@ -23,8 +23,18 @@
 </svg>
 <header class="top">
   <div class="shell">
-    <a href="#top" class="brand mono"><span class="brand-mark" aria-hidden="true">✦</span> NIKHILA.EXE</a>
-    <a class="button alt header-link" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
+    <div class="desktop-identity">
+      <a href="#top" class="brand mono"><span class="brand-mark" aria-hidden="true">✦</span> NIKHILA.EXE</a>
+      <span class="hit-counter" title="Homepage loads counted since the counter was added">
+        <span id="counter-status">HITS · PREVIEW</span>
+        <img id="counter-badge" width="110" height="20" alt="Public homepage hit counter" referrerpolicy="no-referrer" hidden>
+      </span>
+    </div>
+    <div class="desktop-tools">
+      <button class="button alt header-link desktop-toggle" id="music-toggle" type="button" aria-label="Background music" aria-pressed="false" hidden>♫ Music off</button>
+      <button class="button alt header-link desktop-toggle" id="bunny-toggle" type="button" aria-label="Bunny companion" aria-pressed="true" hidden>Bunny on</button>
+      <a class="button alt header-link" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
+    </div>
   </div>
 </header>
 <div class="shell desktop">
@@ -63,20 +73,22 @@
             <path d="M0 242h23v-12h18v-12h18v-13h17v15h18v10h22v11h36v14h110v-12h27v-13h19v-15h16v-12h17v13h19v12h24v11h16v91H0Z" fill="#b2c8cf"/>
             <path d="M0 255h400v75H0z" fill="#add4c6"/><path d="M0 255h400v75H0z" fill="url(#water)"/>
             <path d="M110 281h20v-9h39v-8h71v8h34v9h20v9h-21v7H130v-7h-20Z" fill="#b996bd"/>
+            <g class="hero-computer">
             <g stroke="#382a40" stroke-width="4" stroke-linejoin="round">
               <path d="M137 122h116v9h8v94h-8v9H137v-9h-8v-94h8Z" fill="#f8d6d4"/>
               <path d="M146 141h98v69h-98Z" fill="#453851"/>
               <path d="M176 235h36v14h24v10h-84v-10h24Z" fill="#f1b9ca"/>
               <path d="M146 268h104l13 14H132Z" fill="#fae6a9"/>
             </g>
-            <path d="M153 179h11v-5h8v10h8v-24h8v35h8v-43h8v33h8v-18h8v12h17" fill="none" stroke="#d0f3d8" stroke-width="3" stroke-linejoin="round"/>
+            <path class="hero-signal" pathLength="100" d="M153 179h11v-5h8v10h8v-24h8v35h8v-43h8v33h8v-18h8v12h17" fill="none" stroke="#d0f3d8" stroke-width="3" stroke-linejoin="round"/>
             <path d="M155 276h81" stroke="#8c6480" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M229 220h13" stroke="#93627f" stroke-width="3" stroke-dasharray="4 3"/>
+            <path class="hero-led" d="M229 220h13" stroke="#93627f" stroke-width="3" stroke-dasharray="4 3"/>
+            </g>
           </svg>
           <span class="art-label" aria-hidden="true">FIG. 01 / SIGNAL RECEIVED</span>
         </div>
       </div>
-      <div class="status"><span class="status-dot" aria-hidden="true"></span> College Park, MD · University of Maryland</div>
+      <div class="status"><span class="status-dot" aria-hidden="true"></span> College Park, MD · University of Maryland <span class="status-online mono" aria-hidden="true">● ONLINE</span></div>
     </section>
 
     <section id="projects" aria-labelledby="projects-title">
@@ -185,6 +197,23 @@
     </section>
   </main>
 </div>
-<footer class="taskbar"><div class="shell mono"><span>✦ &nbsp; NIKHILA KUCHIMANCHI</span><a href="#top">Back to desktop ↑</a></div></footer>
+<footer class="taskbar">
+  <div class="shell mono">
+    <span>✦ &nbsp; NIKHILA KUCHIMANCHI</span>
+    <div class="taskbar-tools"><time id="desktop-clock" aria-label="Local time"></time><a href="#top">Back to desktop ↑</a></div>
+  </div>
+</footer>
+<audio id="desktop-audio" src="desktop-loop.mp3" preload="none" loop></audio>
+<div class="pixel-bunny" id="pixel-bunny" aria-hidden="true" hidden>
+  <svg viewBox="0 0 32 32" width="42" height="42" shape-rendering="crispEdges">
+    <path d="M10 30v-2H6v-2H4v-4H2v-5h2v-2h5v-2h5v-2h2V5h2V2h4v2h2v6h2V6h2v2h2v7h2v8h-2v3h-4v4h-6v-2h-4v2z" fill="#493044"/>
+    <path d="M8 25H6v-4H4v-4h4v3h2v-4h5v-2h3V6h2V4h2v8h3V8h3v8h2v6h-2v2h-4v4h-3v-3h-7v3h-3v-3z" fill="#a56b49"/>
+    <path d="M18 7h2v6h-2zm8 3h1v5h-1z" fill="#edb0b3"/>
+    <path d="M16 19h3v-4h6v2h3v5h-4v2h-8z" fill="#db9c72"/>
+    <path d="M24 17h2v3h-2z" fill="#35253b"/>
+    <path d="M27 21h3v1h-3z" fill="#e8a7a6"/>
+    <path d="M11 27h3v1h-3zm10 0h3v1h-3z" fill="#f1c6a2"/>
+  </svg>
+</div>
 </body>
 </html>
