@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Nikhila Kuchimanchi’s portfolio. Applied machine learning, voice AI, multimodal research, and cloud deployment.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nikhila Kuchimanchi | Applied AI & ML">
+<meta property="og:description" content="Explore my work in voice AI, agent tooling, multimodal ML, and cloud deployment.">
+<meta name="theme-color" content="#e4d5ec">
+<title>Nikhila Kuchimanchi | Applied AI & ML</title>
+<style>
+:root {
+  color-scheme: light;
+  --ink: #302538;
+  --muted: #63566a;
+  --border: #382a40;
+  --paper: #fffbf0;
+  --lilac: #e6d5ee;
+  --pink: #f6c7ce;
+  --mint: #cce4d8;
+  --yellow: #fae6a9;
+  --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+  background-color: #f1e5f3;
+  background-image: linear-gradient(#755b8010 1px, transparent 1px), linear-gradient(90deg, #755b8010 1px, transparent 1px);
+  background-size: 20px 20px;
+  line-height: 1.55;
+}
+a { color: inherit; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #7b477a; outline-offset: 4px; }
+.skip { position: absolute; left: .7rem; top: -6rem; z-index: 3; background: var(--paper); padding: .5rem .8rem; }
+.skip:focus { top: .7rem; }
+.shell { width: min(1190px, calc(100% - 48px)); margin: 0 auto; }
+.mono { font-family: var(--mono); }
+.top { background: var(--paper); border-bottom: 2px solid var(--border); }
+.top .shell, .taskbar .shell { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.top .shell { min-height: 62px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: .86rem; font-weight: 800; text-decoration: none; letter-spacing: .04em; }
+.brand-mark { display: grid; place-items: center; width: 32px; height: 31px; border: 2px solid var(--border); border-radius: 6px; background: var(--pink); font-size: 1.12rem; }
+.top-note { font-size: .73rem; color: var(--muted); }
+.desktop { display: grid; grid-template-columns: 124px minmax(0, 1fr); gap: 34px; align-items: start; padding-block: 36px 48px; }
+.shortcuts { position: sticky; top: 24px; display: grid; gap: 13px; }
+.shortcut { display: grid; justify-items: center; gap: 5px; text-align: center; padding: 10px 5px; border: 1px solid transparent; border-radius: 7px; text-decoration: none; font: 700 .73rem/1.4 var(--mono); }
+.shortcut:hover { background: var(--paper); border-color: var(--border); }
+.shortcut svg { width: 43px; height: 43px; }
+main { min-width: 0; }
+section { scroll-margin-top: 22px; }
+.window { border: 2px solid var(--border); border-radius: 12px; background: var(--paper); box-shadow: 5px 5px 0 var(--border); overflow: hidden; }
+.titlebar { background: var(--lilac); min-height: 37px; border-bottom: 2px solid var(--border); padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font: 800 .74rem/1.3 var(--mono); letter-spacing: .04em; }
+.controls { display: inline-flex; gap: 5px; flex-shrink: 0; }
+.controls span { display: grid; place-items: center; width: 18px; height: 17px; border: 1px solid var(--border); border-radius: 3px; background: var(--paper); }
+.controls span:last-child { background: var(--pink); }
+.address { display: flex; align-items: center; gap: 10px; min-height: 42px; padding: 6px 12px; background: #f8d9d9; border-bottom: 2px solid var(--border); font: .73rem/1.3 var(--mono); }
+.address a { font-size: 1rem; font-weight: 800; text-decoration: none; }
+.address span { flex: 1; background: var(--paper); border: 1px solid var(--border); border-radius: 20px; padding: 5px 11px; }
+.hero { display: grid; grid-template-columns: minmax(0, 1.17fr) minmax(0, .83fr); }
+.hero-copy { padding: clamp(24px, 4vw, 54px); align-self: center; }
+.eyebrow { margin: 0 0 12px; color: var(--muted); font: 800 .72rem/1.5 var(--mono); letter-spacing: .095em; text-transform: uppercase; }
+h1, h2, h3, p { overflow-wrap: break-word; }
+h1, h2 { font-family: Georgia, serif; }
+h1 { margin: 0; font-size: clamp(2.5rem, 5.4vw, 4.9rem); line-height: .98; letter-spacing: -.065em; }
+.hero-copy .intro { max-width: 39ch; color: var(--muted); margin: 17px 0 23px; font-size: 1rem; }
+.buttons { display: flex; flex-wrap: wrap; gap: 9px; }
+.button { display: inline-flex; align-items: center; min-height: 40px; padding: 8px 12px; border: 2px solid var(--border); border-radius: 6px; background: var(--pink); box-shadow: 2px 2px var(--border); font: 800 .75rem/1.3 var(--mono); text-decoration: none; }
+.button.alt { background: var(--paper); }
+.button:hover { background: var(--yellow); }
+.art { position: relative; display: grid; place-items: center; min-height: 330px; overflow: hidden; border-left: 2px solid var(--border); background: #cfe5dc; }
+.art svg { width: 100%; height: 100%; min-height: inherit; position: absolute; inset: 0; }
+.art-label { position: absolute; bottom: 11px; right: 11px; background: var(--paper); border: 1px solid var(--border); padding: 4px 7px; font: 700 .63rem var(--mono); }
+.status { display: flex; gap: 8px; align-items: center; padding: 9px 12px; border-top: 2px solid var(--border); font: .7rem/1.4 var(--mono); }
+.status-dot { width: 9px; height: 9px; background: #87bc9f; border: 1px solid var(--border); display: inline-block; flex: 0 0 9px; }
+.section-head { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; margin: 44px 0 16px; }
+.section-head h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.055em; line-height: 1.05; margin: 0; }
+.section-head p { margin: 0 0 5px; }
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 19px; align-items: start; }
+.project .titlebar { background: var(--mint); }
+.project:nth-child(2) .titlebar { background: var(--pink); }
+.project:nth-child(3) .titlebar { background: var(--yellow); }
+.project:nth-child(4) .titlebar { background: var(--lilac); }
+.project-body, .pane { padding: 18px 19px; }
+.project h3, .pane h3 { margin: 0; font-size: 1.23rem; line-height: 1.25; }
+.project p, .pane p { margin: 9px 0 13px; font-size: .93rem; color: var(--muted); }
+.tag { display: inline-block; margin: 0 4px 5px 0; padding: 3px 6px; border: 1px solid #a598aa; border-radius: 4px; font: .66rem/1.35 var(--mono); }
+details { margin-top: 12px; padding-top: 9px; border-top: 1px dashed #b9a8bd; }
+summary { width: fit-content; cursor: pointer; font: 800 .74rem/1.5 var(--mono); padding: 4px 0; }
+summary:hover { text-decoration: underline; }
+.research-list, .experience-list { list-style: none; padding: 0; margin: 0; }
+.research-list li, .experience-list li { padding: 14px 0; border-top: 1px dashed #b9a8bd; }
+.research-list li:first-child, .experience-list li:first-child { border-top: 0; padding-top: 0; }
+.research-list li:last-child, .experience-list li:last-child { padding-bottom: 0; }
+.research-list span, .experience-list span { display: block; color: var(--muted); font-size: .83rem; margin-top: 3px; }
+.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contact { background: var(--mint); }
+.contact .pane { padding: 25px 20px; }
+.contact p { margin-top: 0; }
+.taskbar { background: var(--lilac); border-top: 2px solid var(--border); }
+.taskbar .shell { padding-block: 13px; font-size: .7rem; }
+@media (max-width: 920px) {
+  .desktop { grid-template-columns: 90px minmax(0, 1fr); gap: 17px; }
+  .hero-copy { padding: 28px; }
+}
+@media (max-width: 720px) {
+  .shell { width: calc(100% - 34px); }
+  .desktop { display: block; padding-top: 10px; }
+  .shortcuts { position: static; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px; margin-bottom: 10px; }
+  .shortcut { padding: 5px 1px; font-size: .61rem; }
+  .shortcut svg { width: 32px; height: 32px; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero-copy { padding: 24px; }
+  .art { min-height: 220px; border-left: 0; border-top: 2px solid var(--border); }
+  .art-label { display: none; }
+  .top .shell { min-height: 51px; }
+}
+@media (max-width: 520px) {
+  .projects, .about-layout { grid-template-columns: minmax(0, 1fr); }
+  .top-note { display: none; }
+  .section-head { margin-top: 33px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-home" viewBox="0 0 48 48"><g stroke="#382a40" stroke-width="2.5" stroke-linejoin="round"><rect x="5" y="6" width="38" height="28" rx="3" fill="#cce4d8"/><rect x="10" y="11" width="28" height="17" fill="#fffbf0"/><path d="M19 34v6h-7v3h24v-3h-7v-6" fill="#cce4d8"/></g><path d="m24 13 1.5 4.5L30 19l-4.5 1.5L24 25l-1.5-4.5L18 19l4.5-1.5Z" fill="#a36c9d"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 48 48"><g stroke="#382a40" stroke-width="2.5" stroke-linejoin="round"><path d="M5 39V9h15l5 5h17v25Z" fill="#fae6a9"/><path d="M5 39l4-21h36l-4 21Z" fill="#f6cf7f"/></g><path d="M15 27h12" stroke="#382a40" stroke-width="2"/></symbol>
+  <symbol id="i-file" viewBox="0 0 48 48"><g stroke="#382a40" stroke-width="2.5" stroke-linejoin="round"><path d="M11 5h17l10 10v28H11Z" fill="#fffbf0"/><path d="M28 5v11h10" fill="#cce4d8"/><path d="M17 23h15m-15 6h15m-15 6h10"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 48 48"><g stroke="#382a40" stroke-width="2.5" stroke-linejoin="round"><rect x="5" y="7" width="38" height="34" rx="3" fill="#e6d5ee"/><circle cx="20" cy="20" r="5" fill="#f6c7ce"/><path d="M11 34v-2a9 9 0 0 1 18 0v2Z" fill="#f6c7ce"/><path d="M32 17h6m-6 6h6"/></g></symbol>
+  <symbol id="i-mail" viewBox="0 0 48 48"><g stroke="#382a40" stroke-width="2.5" stroke-linejoin="round"><rect x="5" y="10" width="38" height="28" rx="3" fill="#f6c7ce"/><path d="m6 12 18 14 18-14M6 36l13-13m23 13L29 23" fill="none"/></g></symbol>
+</svg>
+<header class="top">
+  <div class="shell">
+    <a href="#top" class="brand mono"><span class="brand-mark" aria-hidden="true">✦</span> NIKHILA.EXE</a>
+    <span class="top-note mono">PORTFOLIO / APPLIED AI &amp; ML</span>
+  </div>
+</header>
+<div class="shell desktop">
+  <nav class="shortcuts" aria-label="Desktop shortcuts">
+    <a class="shortcut" href="#top"><svg aria-hidden="true"><use href="#i-home"/></svg>Home</a>
+    <a class="shortcut" href="#projects"><svg aria-hidden="true"><use href="#i-folder"/></svg>Projects</a>
+    <a class="shortcut" href="#research"><svg aria-hidden="true"><use href="#i-file"/></svg>Research</a>
+    <a class="shortcut" href="#experience"><svg aria-hidden="true"><use href="#i-user"/></svg>About</a>
+    <a class="shortcut" href="#contact"><svg aria-hidden="true"><use href="#i-mail"/></svg>Contact</a>
+  </nav>
+  <main id="main">
+    <section class="window" aria-labelledby="intro-title">
+      <div class="titlebar"><span>01 / ABOUT_ME.EXE</span><span class="controls" aria-hidden="true"><span>−</span><span>□</span><span>×</span></span></div>
+      <div class="address"><a href="#top" aria-label="Back to desktop top">⌂</a><span>Desktop / Home</span></div>
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Applied AI &amp; Machine Learning</p>
+          <h1 id="intro-title">Hi, I’m Nikhila Kuchimanchi.</h1>
+          <p class="intro">I’m a master’s student at the University of Maryland. I build voice agents and multimodal ML tools, and I work on the infrastructure that serves them.</p>
+          <div class="buttons"><a class="button" href="#projects">Open projects ↓</a><a class="button alt" href="#contact">Get in touch ↗</a></div>
+        </div>
+        <div class="art">
+          <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Pixel art of a retro computer showing a speech waveform under a pastel sky">
+            <defs>
+              <pattern id="sky-grid" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0v16" fill="none" stroke="#6b8f83" stroke-opacity=".2"/></pattern>
+              <pattern id="water" width="64" height="22" patternUnits="userSpaceOnUse"><path d="M2 7h24m15 10h20" fill="none" stroke="#f7fff9" stroke-width="3" opacity=".55"/></pattern>
+              <path id="cloud" d="M0 33h8V23h10v-8h14V6h24v7h11v8h17v7h9v12H0Z"/>
+              <path id="spark" d="M9 0h4v8h9v4h-9v8H9v-8H0V8h9Z"/>
+            </defs>
+            <path fill="#cce5db" d="M0 0h400v330H0z"/>
+            <path fill="url(#sky-grid)" d="M0 0h400v330H0z"/>
+            <circle cx="302" cy="90" r="57" fill="#f5c4d1" stroke="#86647e" stroke-width="2"/>
+            <path d="M258 55h88m-100 16h113m-115 17h115m-113 18h110m-104 16h96m-84 15h72" fill="none" stroke="#fff0e9" stroke-width="3" opacity=".65"/>
+            <g fill="#fffdf2"><use href="#cloud" x="24" y="37"/><use href="#cloud" x="318" y="123"/><use href="#cloud" x="-28" y="151"/><use href="#spark" x="117" y="71"/><use href="#spark" x="335" y="40"/><use href="#spark" x="275" y="168"/></g>
+            <path d="M0 242h23v-12h18v-12h18v-13h17v15h18v10h22v11h36v14h110v-12h27v-13h19v-15h16v-12h17v13h19v12h24v11h16v91H0Z" fill="#b2c8cf"/>
+            <path d="M0 255h400v75H0z" fill="#add4c6"/><path d="M0 255h400v75H0z" fill="url(#water)"/>
+            <path d="M110 281h20v-9h39v-8h71v8h34v9h20v9h-21v7H130v-7h-20Z" fill="#b996bd"/>
+            <g stroke="#382a40" stroke-width="4" stroke-linejoin="round">
+              <path d="M137 122h116v9h8v94h-8v9H137v-9h-8v-94h8Z" fill="#f8d6d4"/>
+              <path d="M146 141h98v69h-98Z" fill="#453851"/>
+              <path d="M176 235h36v14h24v10h-84v-10h24Z" fill="#f1b9ca"/>
+              <path d="M146 268h104l13 14H132Z" fill="#fae6a9"/>
+            </g>
+            <path d="M153 179h11v-5h8v10h8v-24h8v35h8v-43h8v33h8v-18h8v12h17" fill="none" stroke="#d0f3d8" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M155 276h81" stroke="#8c6480" stroke-width="2" stroke-dasharray="5 3"/>
+            <path d="M229 220h13" stroke="#93627f" stroke-width="3" stroke-dasharray="4 3"/>
+          </svg>
+          <span class="art-label" aria-hidden="true">FIG. 01 / SIGNAL RECEIVED</span>
+        </div>
+      </div>
+      <div class="status"><span class="status-dot" aria-hidden="true"></span> College Park, MD · University of Maryland</div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="section-head"><div><p class="eyebrow">02 / Project directory</p><h2 id="projects-title">Selected work</h2></div><p class="eyebrow">4 featured projects</p></div>
+      <div class="projects">
+        <article class="window project">
+          <div class="titlebar"><span>01 / VOICE_AI</span><span aria-hidden="true">✦</span></div>
+          <div class="project-body">
+            <h3>Call-GPT</h3>
+            <p>A customer-facing phone assistant I worked on at SalesboxAI, connecting language models to live calls through Twilio.</p>
+            <span class="tag">Twilio</span><span class="tag">LLM evaluation</span><span class="tag">llama.cpp</span>
+            <details><summary>Project notes</summary><p>I worked on model selection, prompt optimization, and multi-step call flows for service selection, billing, and payments.</p></details>
+          </div>
+        </article>
+        <article class="window project">
+          <div class="titlebar"><span>02 / MULTIMODAL_ML</span><span aria-hidden="true">✦</span></div>
+          <div class="project-body">
+            <h3>SpeakSmart</h3>
+            <p>A research project on a public-speaking coach that analyzes recorded speech, facial expressions, posture, and gestures.</p>
+            <span class="tag">Speech processing</span><span class="tag">Computer vision</span>
+            <details><summary>Project notes</summary><p>I co-authored the paper. The system brings together grammar correction, disfluency detection, and visual analysis to give speakers feedback on their delivery.</p><p><a href="#research">See the research entry ↓</a></p></details>
+          </div>
+        </article>
+        <article class="window project">
+          <div class="titlebar"><span>03 / AGENT_TOOLING</span><span aria-hidden="true">✦</span></div>
+          <div class="project-body">
+            <h3>Easy Orbit</h3>
+            <p>A travel-planning agent that turns text or images into structured trip requirements, asks clarifying questions, and generates itineraries.</p>
+            <span class="tag">LangChain</span><span class="tag">Pydantic</span><span class="tag">MCP</span>
+            <details><summary>Project notes</summary><p>I extended the agent with travel search, trip-budget calculations, and currency conversion through a FastMCP tool server.</p></details>
+          </div>
+        </article>
+        <article class="window project">
+          <div class="titlebar"><span>04 / ML_INFRASTRUCTURE</span><span aria-hidden="true">✦</span></div>
+          <div class="project-body">
+            <h3>Batch vs. Real-Time ML Serving</h3>
+            <p>I deployed a house-price model in batch and real-time modes on AWS Kubernetes to compare how each setup serves predictions.</p>
+            <span class="tag">AWS EKS</span><span class="tag">FastAPI</span><span class="tag">ClearML</span>
+            <details><summary>Project notes</summary><p>I tracked experiments with ClearML, containerized the inference workloads, and measured latency on the real-time API.</p></details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" aria-labelledby="research-title">
+      <div class="section-head"><div><p class="eyebrow">03 / Research directory</p><h2 id="research-title">Papers &amp; research</h2></div></div>
+      <div class="window">
+        <div class="titlebar"><span>PUBLICATIONS.TXT</span><span aria-hidden="true">▤</span></div>
+        <div class="pane"><ul class="research-list">
+          <li><strong>SpeakSmart: A Comprehensive Oratory Enhancement Tool</strong><span>IFIP AIAI 2025 · Co-author</span></li>
+          <li><strong>Predictive Analytics in Genetic Disorders: Focusing on Hemophilia B</strong><span>PCCDA 2025 · First author</span></li>
+          <li><strong>Genetic Analysis for Severity Prediction: A Study on Hemophilia A</strong><span>ICCCT 2025 · Co-author</span></li>
+          <li><strong>Sentence Level Correction of Common Spoken Grammatical Errors with Deep Neural Networks</strong><span>ICBAI 2024 · Co-author</span></li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <div class="section-head"><div><p class="eyebrow">04 / About &amp; experience</p><h2 id="experience-title">My background</h2></div></div>
+      <div class="about-layout">
+        <div class="window">
+          <div class="titlebar"><span>EXPERIENCE.LOG</span><span aria-hidden="true">▤</span></div>
+          <div class="pane"><ul class="experience-list">
+            <li><strong>Software Development Intern · SalesboxAI</strong><span>Conversational AI, telephony, and LLM evaluation</span></li>
+            <li><strong>Teaching Assistant · PES University</strong><span>Generative AI tooling and agent workflows</span></li>
+            <li><strong>Research Assistant · C3I</strong><span>Model benchmarking for genetic disorder severity prediction</span></li>
+          </ul></div>
+        </div>
+        <div class="window">
+          <div class="titlebar"><span>EDUCATION.LOG</span><span aria-hidden="true">▤</span></div>
+          <div class="pane"><ul class="experience-list">
+            <li><strong>University of Maryland</strong><span>M.S. in Applied Machine Learning · Expected December 2026</span></li>
+            <li><strong>PES University</strong><span>B.Tech. in Computer Science, AI/ML specialization · 2025</span></li>
+          </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-head"><div><p class="eyebrow">05 / Contact</p><h2 id="contact-title">Let’s connect</h2></div></div>
+      <div class="window contact">
+        <div class="titlebar"><span>CONNECT.EXE</span><span aria-hidden="true">✉</span></div>
+        <div class="pane">
+          <p>Reach me by email or connect with me on LinkedIn.</p>
+          <div class="buttons"><a class="button" href="mailto:nikhila.kuchimanchi@gmail.com">Email me ↗</a><a class="button alt" href="https://www.linkedin.com/in/nikhila-kuchimanchi-6388362a7/">LinkedIn ↗</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<footer class="taskbar"><div class="shell mono"><span>✦ &nbsp; NIKHILA KUCHIMANCHI</span><a href="#top">Back to desktop ↑</a></div></footer>
+</body>
+</html>
